@@ -1,0 +1,38 @@
+* {
+  font-family: "Nunito sans", sans-serif;
+}
+
+.App {
+  background-color: hsl(207, 26%, 17%);
+  min-height: 100vh;
+}
+.dark-bg,
+.form-control:focus {
+  background-color: hsl(209, 23%, 22%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+
+.brand {
+  font-weight: 600;
+}
+.input-dark {
+  color: hsl(0, 0%, 100%);
+}
+input:focus {
+  outline: none !important;
+  border: none !important;
+}
+.form-control::placeholder,
+.form-select {
+  color: hsl(0, 0%, 100%) !important;
+}
+.img-thumb {
+  height: 10rem;
+  object-fit: cover;
+}
+h6 {
+  font-weight: 600;
+}
+a {
+  text-decoration: none !important;
+}
