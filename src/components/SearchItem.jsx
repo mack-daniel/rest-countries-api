@@ -1,36 +1,46 @@
 import React from "react";
 
-const SearchItem = ({ setSelectedRegions, serchInput }) => {
+const SearchItem = ({ serchInput, darkMode }) => {
   return (
-    <div className="container">
-      <header className="d-flex justify-content-between align-items-center gap-5 ">
-        {/* search */}
-        <div className="input-group w-25 ">
-          <span className="input-group-text border-0 dark-bg">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </span>
-          <input
-            type="text"
-            className="form-control dark-bg border-0 p-3"
-            placeholder="Search for a country..."
-            onChange={(e) => serchInput(e.target.value)}
-          />
-        </div>
-
-        {/* select */}
-        <select
-          className="form-select w-25 border-0 p-3 dark-bg"
-          onChange={(e) => setSelectedRegions(e.target.value)}
+    <header className="d-md-flex justify-content-between align-items-center gap-5 ">
+      {/* search */}
+      <div className="input-group">
+        <span
+          className={`input-group-text  ${
+            darkMode ? "dark-bg border-0" : "border-1"
+          }`}
         >
-          <option selected>Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Ocenia">Oceania</option>
-        </select>
-      </header>
-    </div>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input
+          type="text"
+          className={`form-control ${
+            darkMode
+              ? "form-control-dark dark-bg border-0"
+              : "form-control border-1"
+          }  p-3`}
+          placeholder="Search for a country..."
+          onChange={(e) => serchInput(e.target.value)}
+        />
+      </div>
+
+      {/* select */}
+      <select
+        className={`form-select  p-3 ${
+          darkMode
+            ? "form-select-dark dark-bg border-0"
+            : "form-select-light border-1"
+        }`}
+        onChange={(e) => serchInput(e.target.value)}
+      >
+        <option selected>Filter by Region</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="ocean">Oceania</option>
+      </select>
+    </header>
   );
 };
 

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import SearchItem from "./SearchItem";
 import Card from "./Card";
 
-const Main = ({ regions, setRegions }) => {
-  // const [selectedRegions, setSelectedRegions] = useState("");
+const Main = ({ regions, darkMode }) => {
   const [searchRegions, setSearchRegions] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
 
@@ -24,18 +23,20 @@ const Main = ({ regions, setRegions }) => {
     <main className="py-5">
       <div className="container">
         <SearchItem
-          // setSelectedRegions={setSelectedRegions}
           setSearchRegions={setSearchRegions}
           serchInput={serchInput}
+          darkMode={darkMode}
         />
         <div className="row row-cols-1 row-cols-md-4 g-4 mt-5">
           {searchRegions !== ""
             ? filteredResults.map((item) => (
-                <Card {...item} key={item.numericCode} />
+                <Card {...item} key={item.numericCode} darkMode={darkMode} />
               ))
             : regions
                 .slice(regions.length - 8)
-                .map((item) => <Card {...item} key={item.numericCode} />)}
+                .map((item) => (
+                  <Card {...item} key={item.numericCode} darkMode={darkMode} />
+                ))}
         </div>
       </div>
     </main>

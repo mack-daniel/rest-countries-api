@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SectionContainer = ({
   flags,
@@ -11,28 +12,29 @@ const SectionContainer = ({
   topLevelDomain,
   currencies,
   languages,
+  borders,
 }) => {
   return (
     <div className="container py-5">
-      <div className="card mb-3 bg-transparent text-light">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <img
-              src={flags?.svg}
-              className="img-fluid rounded-start"
-              alt="..."
-            />
+      <Link className="btn btn-lg dark-bg mb-5 px-5" to="/">
+        <i class="fa-solid fa-arrow-left me-3"></i>
+        Back
+      </Link>
+      <div className="card bg-transparent text-light">
+        <div className="row g-5">
+          <div className="col-md-6">
+            <img src={flags.svg} className="img-fluid" alt="..." />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-6">
             <div className="card-body">
-              <h5 className="card-title">{name}</h5>
+              <h5 className="card-title fs-1">{name}</h5>
               <div className="row my-4">
                 <div className="col-md">
                   <h6>
                     Native Name: <span>{nativeName}</span>
                   </h6>
                   <h6>
-                    Population: <span>{population}</span>
+                    Population: <span>{population.toLocaleString()}</span>
                   </h6>
                   <h6>
                     Region: <span>{region}</span>
@@ -52,11 +54,17 @@ const SectionContainer = ({
                     Currencies: <span>{currencies[0].name}</span>
                   </h6>
                   <h6>
-                    Languages: {languages?.map((language) => language.name)}
+                    Languages: {languages.map((language) => language.name)}
                   </h6>
                 </div>
               </div>
-              <h6>Border Countries: </h6>
+              <h6 className="d-md-flex gap-4">
+                Border Countries:
+                {borders &&
+                  borders.map((border) => (
+                    <div className="border-1 dark-bg py-1 px-3">{border}</div>
+                  ))}
+              </h6>
             </div>
           </div>
         </div>

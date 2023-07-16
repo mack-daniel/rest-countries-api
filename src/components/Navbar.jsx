@@ -1,13 +1,21 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   return (
-    <nav className="navbar dark-bg">
+    <nav className={`navbar ${darkMode ? "dark-bg" : "bg-light"}`}>
       <div className="container d-flex justify-content-between align-items-center">
-        <a href="#" className="brand text-light text-decoration-none fs-5">
+        <a
+          href="#"
+          className={`brand ${
+            darkMode ? "text-light" : "text-dark"
+          } text-decoration-none fs-5`}
+        >
           Where in the world?
         </a>
-        <button className="btn text-light">
+        <button
+          className={`btn ${darkMode ? "text-light" : "text-dark"}`}
+          onClick={() => setDarkMode(!darkMode)}
+        >
           <i className="fa-solid fa-moon me-3"></i>
           Dark Mode
         </button>

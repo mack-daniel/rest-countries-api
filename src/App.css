@@ -1,19 +1,38 @@
 * {
   font-family: "Nunito sans", sans-serif;
 }
-
+h6 {
+  font-weight: 600;
+}
+h5 {
+  font-weight: 800;
+}
+a {
+  text-decoration: none !important;
+}
+span {
+  color: hsl(0, 0%, 52%);
+}
+.brand {
+  font-weight: 600;
+}
 .App {
   background-color: hsl(207, 26%, 17%);
   min-height: 100vh;
 }
+.bg-light {
+  box-shadow: 1px -2px 26px -7px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px -2px 26px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px -2px 26px -7px rgba(0, 0, 0, 0.75);
+}
 .dark-bg,
-.form-control:focus {
+.form-control-dark:focus {
   background-color: hsl(209, 23%, 22%) !important;
   color: hsl(0, 0%, 100%) !important;
 }
-
-.brand {
-  font-weight: 600;
+.light-bg {
+  background-color: hsl(0, 0%, 98%) !important;
+  color: #000 !important;
 }
 .input-dark {
   color: hsl(0, 0%, 100%);
@@ -22,17 +41,31 @@ input:focus {
   outline: none !important;
   border: none !important;
 }
-.form-control::placeholder,
+.input-group {
+  width: 50% !important;
+}
 .form-select {
+  width: 20% !important;
+}
+.form-control-dark::placeholder,
+.form-select-dark {
   color: hsl(0, 0%, 100%) !important;
+}
+.form-control-light::placeholder,
+.form-select-light {
+  color: #000 !important;
 }
 .img-thumb {
   height: 10rem;
   object-fit: cover;
 }
-h6 {
-  font-weight: 600;
-}
-a {
-  text-decoration: none !important;
+
+@media (max-width: 768px) {
+  .input-group {
+    width: 100% !important;
+    margin-bottom: 2rem;
+  }
+  .form-select {
+    width: 50% !important;
+  }
 }

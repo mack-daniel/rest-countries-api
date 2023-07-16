@@ -8,21 +8,32 @@ import jsonData from "./data/data.json";
 
 function App() {
   const [regions, setRegions] = useState([]);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const loadData = () => JSON.parse(JSON.stringify(jsonData));
     setRegions(loadData);
   }, []);
+
   return (
-    <div className="App">
-      <Navbar />
+    <div className={`${darkMode ? "App" : "light-bg"}`}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Router>
         <Routes>
           <Route
             path="/"
-            element={<Main regions={regions} setRegions={setRegions} />}
+            element={
+              <Main
+                regions={regions}
+                setRegions={setRegions}
+                darkMode={darkMode}
+              />
+            }
           />
-          <Route path="/country/:id" element={<Country regions={regions} />} />
+          <Route
+            path="/country/:id"
+            element={<Country regions={regions} darkMode={darkMode} />}
+          />
         </Routes>
       </Router>
     </div>
